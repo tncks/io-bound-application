@@ -1,6 +1,45 @@
+#spring:
+#  profiles:
+#    active: "dev"
+#  main:
+#    banner-mode: "off"
+#
+#
+#---
+#
+#spring:
+#  profiles: dev
+#server:
+#  email: dev@mkyong.com
+#  cluster:
+#    - ip: 127.0.0.1
+#      path: /dev1
+#    - ip: 127.0.0.2
+#      path: /dev2
+#    - ip: 127.0.0.3
+#      path: /dev3
+#
+#---
+#
+#spring:
+#  profiles: prod
+#server:
+#  email: prod@mkyong.com
+#  cluster:
+#    - ip: 192.168.0.1
+#      path: /app1
+#    - ip: 192.168.0.2
+#      path: /app2
+#    - ip: 192.168.0.3
+#      path: /app3
+#
+#---
+#
+#
 spring:
   datasource:
     url: jdbc:postgresql://10.140.0.3:5432/postgresql
+    #url: jdbc:postgresql://localhost:5432/postgresql
     username: postgresql
     password: postgrespassword
   jpa:
@@ -8,3 +47,36 @@ spring:
     hibernate:
       dialect: org.hibernate.dialect.PostgreSQLDialect
       ddl-auto: update
+  rabbitmq:
+    host: 10.146.0.2
+    username: guest
+    password: guest
+    port: 5672
+#
+#---
+#
+#spring:
+#  profiles:
+#    active:
+#      default logging:
+#        level:
+#          root: debug
+#
+#---
+#
+#spring:
+#  profiles:
+#    dev logging:
+#      level:
+#        root: info
+#
+#---
+#
+#spring:
+#  profiles:
+#    test logging:
+#      level:
+#        root: debug
+#      level.org.hibernate:
+#        SQL: debug
+#        type.descriptor.sql.BasicBinder: trace
